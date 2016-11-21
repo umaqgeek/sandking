@@ -1,0 +1,491 @@
+.p_hack {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+html,body {
+    height: 100%;
+    overflow-y:auto;
+    overflow-x:hidden;
+    
+    background-image:none;
+    height:100%;
+    background: white; /* For browsers that do not support gradients */
+    /*background: -webkit-linear-gradient(190deg, orange, black); /* For Safari 5.1 to 6.0 */
+    /*background: -o-linear-gradient(190deg, orange, black); /* For Opera 11.1 to 12.0 */
+    /*background: -moz-linear-gradient(190deg, orange, black); /* For Firefox 3.6 to 15 */
+    /*background: linear-gradient(190deg, orange, black); /* Standard syntax (must be last) */
+    
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size:120%;
+}
+.navbar-left {
+    float:left;
+    margin-left:15px;
+    padding:6px 10px;
+}
+
+.navcolor {
+    background-color: #252e33;
+    border: 0px;
+}
+.footer {
+    background-color: #252e33;
+    color: white;
+    border: 0px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.btn-success{
+    width: 100%;
+}
+.btn-info{
+    width: 100%;
+}
+.btn-primary{
+    width: 100%;
+}
+.btn-warning{
+    width: 100%;
+}
+.btn-danger{
+    width: 100%;
+}
+
+.image-upload > input
+{
+    display: none;
+}
+.image-upload img
+{
+    cursor: pointer;
+}
+input:checked {
+    z-index: 2;
+    position: relative;
+}
+input:checked + img + img + label {
+    color: rgba(49, 179, 217, 1);
+    position: relative;
+    background: rgba(236, 245, 247, 1);
+    padding-left: 1em;
+    margin-left: -1em;
+    z-index: 1;
+}
+.chip {
+    display: inline-block;
+    padding: 0 25px;
+    height: 50px;
+    font-size: 16px;
+    line-height: 50px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
+}
+.chip img {
+    float: left;
+    margin: 0 10px 0 -25px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+input[type="radio"] {
+    -webkit-appearance: checkbox;
+    -moz-appearance: checkbox;
+    -ms-appearance: checkbox;     /* not currently supported */
+    -o-appearance: checkbox;      /* not currently supported */
+}
+.panel.panel-default{
+    background-color: rgba(235, 235, 235, 0.5);
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+.switch input {display:none;}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+input:checked + .slider {
+    background-color: #2196F3;
+}
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+.slider.round:before {
+
+    border-radius: 50%;
+}
+
+
+.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+/* Style the links inside the list items */
+.tab h3 {
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    transition: 0.3s;
+}
+/* Change background color of links on hover */
+.tab h3:hover {
+    background-color: #ddd;
+}
+/* Create an active/current tablink class */
+tab h3:focus, .active {
+    background-color: #ccc;
+}
+/* Style the tab content */
+@-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+@keyframes fadeEffect {
+
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.swiper-container {
+    width: 100%;
+    height: 60%;
+
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+	width:100%;
+	height:100%;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+/*#upload {
+-webkit-transition: width 2s ease;
+-moz-transition: width 2s ease;
+-o-transition: width 2s ease;
+transition: width 2s ease;
+display: inline-block;
+overflow: hidden;
+white-space: nowrap;
+background: white;
+vertical-align: middle;
+line-height: 30px;
+height: 30px;
+width: 0px;
+}
+#upload.in {
+width: 70%;
+height: 10%;
+
+}*/
+
+ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    width: 100%;
+}
+
+/* Float the list items side by side */
+ul.tab li {float: left;}
+
+/* Style the links inside the list items */
+ul.tab li a{
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of links on hover */
+ul.tab li a:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+ul.tab li a:focus, .active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s;
+}
+
+@-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+a {
+    color: brown;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+/* make label bigger */
+label.password{
+	width:60px;
+	display: inline,!important;
+}
+/* keyboard label */
+label.keyboard{
+	width:80px;
+	display: inline,!important;
+}
+.myButton-blue {
+    -moz-box-shadow: 3px 3px 6px 2px #9297a3;
+    -webkit-box-shadow: 3px 3px 6px 2px #9297a3;
+    box-shadow: 3px 3px 6px 2px #9297a3;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #437ce0), color-stop(1, #83bafc));
+    background:-moz-linear-gradient(top, #437ce0 5%, #83bafc 100%);
+    background:-webkit-linear-gradient(top, #437ce0 5%, #83bafc 100%);
+    background:-o-linear-gradient(top, #437ce0 5%, #83bafc 100%);
+    background:-ms-linear-gradient(top, #437ce0 5%, #83bafc 100%);
+    background:linear-gradient(to bottom, #437ce0 5%, #83bafc 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#437ce0', endColorstr='#83bafc',GradientType=0);
+    background-color:#437ce0;
+    -moz-border-radius:12px;
+    -webkit-border-radius:12px;
+    border-radius:12px;
+    display:inline-block;
+    cursor:pointer;
+    color:white;
+    font-family:Trebuchet MS;
+    font-size:17px;
+    padding:12px 76px;
+    text-decoration:none;
+    text-shadow:3px 3px 2px gray;
+    width: 100%;
+}
+.myButton-blue:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #83bafc), color-stop(1, #437ce0));
+    background:-moz-linear-gradient(top, #83bafc 5%, #437ce0 100%);
+    background:-webkit-linear-gradient(top, #83bafc 5%, #437ce0 100%);
+    background:-o-linear-gradient(top, #83bafc 5%, #437ce0 100%);
+    background:-ms-linear-gradient(top, #83bafc 5%, #437ce0 100%);
+    background:linear-gradient(to bottom, #83bafc 5%, #437ce0 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#83bafc', endColorstr='#437ce0',GradientType=0);
+    background-color:#83bafc;
+}
+.myButton-blue:active {
+    position:relative;
+    top:1px;
+}
+.myButton-red {
+    -moz-box-shadow: 3px 3px 6px 2px #9297a3;
+    -webkit-box-shadow: 3px 3px 6px 2px #9297a3;
+    box-shadow: 3px 3px 6px 2px #9297a3;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #de4242), color-stop(1, #fa8282));
+    background:-moz-linear-gradient(top, #de4242 5%, #fa8282 100%);
+    background:-webkit-linear-gradient(top, #de4242 5%, #fa8282 100%);
+    background:-o-linear-gradient(top, #de4242 5%, #fa8282 100%);
+    background:-ms-linear-gradient(top, #de4242 5%, #fa8282 100%);
+    background:linear-gradient(to bottom, #de4242 5%, #fa8282 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#de4242', endColorstr='#fa8282',GradientType=0);
+    background-color:#de4242;
+    -moz-border-radius:12px;
+    -webkit-border-radius:12px;
+    border-radius:12px;
+    display:inline-block;
+    cursor:pointer;
+    color:white;
+    font-family:Trebuchet MS;
+    font-size:17px;
+    padding:12px 76px;
+    text-decoration:none;
+    text-shadow:3px 3px 2px gray;
+    width: 100%;
+}
+.myButton-red:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fa8282), color-stop(1, #de4242));
+    background:-moz-linear-gradient(top, #fa8282 5%, #de4242 100%);
+    background:-webkit-linear-gradient(top, #fa8282 5%, #de4242 100%);
+    background:-o-linear-gradient(top, #fa8282 5%, #de4242 100%);
+    background:-ms-linear-gradient(top, #fa8282 5%, #de4242 100%);
+    background:linear-gradient(to bottom, #fa8282 5%, #de4242 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fa8282', endColorstr='#de4242',GradientType=0);
+    background-color:#fa8282;
+}
+.myButton-red:active {
+    position:relative;
+    top:1px;
+}
+.myButton-green {
+    -moz-box-shadow: 3px 3px 6px 2px #9297a3;
+    -webkit-box-shadow: 3px 3px 6px 2px #9297a3;
+    box-shadow: 3px 3px 6px 2px #9297a3;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #42de47), color-stop(1, #82fa90));
+    background:-moz-linear-gradient(top, #42de47 5%, #82fa90 100%);
+    background:-webkit-linear-gradient(top, #42de47 5%, #82fa90 100%);
+    background:-o-linear-gradient(top, #42de47 5%, #82fa90 100%);
+    background:-ms-linear-gradient(top, #42de47 5%, #82fa90 100%);
+    background:linear-gradient(to bottom, #42de47 5%, #82fa90 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#42de47', endColorstr='#82fa90',GradientType=0);
+    background-color:#42de47;
+    -moz-border-radius:12px;
+    -webkit-border-radius:12px;
+    border-radius:12px;
+    display:inline-block;
+    cursor:pointer;
+    color:white;
+    font-family:Trebuchet MS;
+    font-size:17px;
+    padding:12px 76px;
+    text-decoration:none;
+    text-shadow:3px 3px 2px gray;
+    width: 100%;
+}
+.myButton-green:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #82fa90), color-stop(1, #42de47));
+    background:-moz-linear-gradient(top, #82fa90 5%, #42de47 100%);
+    background:-webkit-linear-gradient(top, #82fa90 5%, #42de47 100%);
+    background:-o-linear-gradient(top, #82fa90 5%, #42de47 100%);
+    background:-ms-linear-gradient(top, #82fa90 5%, #42de47 100%);
+    background:linear-gradient(to bottom, #82fa90 5%, #42de47 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#82fa90', endColorstr='#42de47',GradientType=0);
+    background-color:#82fa90;
+}
+.myButton-green:active {
+    position:relative;
+    top:1px;
+}
+.image-upload > input
+   {
+   display: none;
+   }
+   .image-upload
+   {  
+   border-style: ridge;
+   border-width: 1px;
+   height: 70px;
+   border-color: lightgray;
+    }
+   .image-upload img
+   {  
+   cursor: pointer;
+   
+   }
+   .label-upload{
+    width: 120px;
+    height: 50px;
+    
+   }

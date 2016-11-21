@@ -1,0 +1,23 @@
+
+<div class="row">
+    <div class="col-md-12">
+        <center>
+            
+            <span id="paparresit"></span>
+            
+        </center>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var code = localStorage.getItem("code");
+        $.post(URL_SERVER + "member/paparResit", {
+            code: code
+        }).done(function (data) {
+            msg_alert_clr();
+            $("#paparresit").html(data);
+        });
+        msg_alert("Payment confirmation ...", 2);
+    });
+</script>
