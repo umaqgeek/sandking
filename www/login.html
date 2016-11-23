@@ -57,6 +57,7 @@
                     } else {
                         var uid = d[2];
                         var accounttype = d[3];
+//                        alert(accounttype); return;
                         localStorage.setItem("username", user);
                         localStorage.setItem("password", pwd);
                         localStorage.setItem("uid", uid);
@@ -67,6 +68,7 @@
                         change_title('member/title.html');
                         change_menubar('member/menubar.html');
                         msg_alert_clr();
+                        location.href = '';
                     }
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown)

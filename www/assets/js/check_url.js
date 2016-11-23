@@ -18,6 +18,12 @@
 function pass_url(page) {
     var adopt = $("#adopted3");
     
+    var pe = page.split("/");
+    if (pe[0] == 'member') {
+        change_title('member/title.html');
+        change_menubar('member/menubar.html');
+    }
+    
     adopt.attr("l", page);
     
     adopt.hide(0).load(page, function () {
