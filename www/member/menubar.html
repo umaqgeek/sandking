@@ -1,5 +1,44 @@
 
-<img src="assets/images/menubar.png" size="50%" class="img-circle" id="iconmenubar" />
+<style>
+    .navbar-default1 {
+        background-color: #252E33;
+    }
+</style>
+
+
+<div class="navbar-dinarpal navbar-default1 navbar-fixed-top">
+    <div class="container">
+        <center>
+            <nav class="navbar navbar-inverse" role="navigation">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#!"><img src="assets/images/DP-Logo-small.png" width="106" height="29" alt="DinarPal" /></a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#!" class="linkmenubar" l="member/mainpage.html"><i class="fa fa-home"></i>Home</a></li>
+                        </ul> 
+                        <ul class="nav navbar-nav navbar-right">
+                            <li id="btn_tepi1"><a href="#!" class="linkmenubar" l="member/invoice.html"><i class="fa fa-sign-in"></i> Invoice</a></li>
+                            <li id="btn_tepi2"><a href="#!" class="linkmenubar" l="member/payment.html"><i class="fa fa-sign-in"></i> Purchase</a></li>
+                            <li><a href="#!" class="btn_logout"><i class="fa fa-sign-in"></i> Logout</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </center>
+    </div>
+</div>
+
+<!--<img src="assets/images/menubar.png" size="50%" class="img-circle" id="iconmenubar" />
 
 <div class="barmenubar img-rounded">
 	<br>
@@ -8,38 +47,38 @@
     <button id="btn_tepi2" style="cursor: pointer" class="linkmenubar btn btn-info" l="member/payment.html">Purchase with QR</button>
     <button style="cursor: pointer" class="btn btn-danger btn_logout">Logout</button>
     <p></p>
-</div>
+</div>-->
 
 <script src="assets/js/my_public_session.js"></script>
 <script>
 
-    function bukakbar() {
-        $("#iconmenubar").animate({
-            left: "200px"
-        }, 500, function () {
-            bmenu = 2;
-        });
-
-        $(".barmenubar").animate({
-            left: "10px"
-        }, 500, function () {
-            bmenu = 2;
-        });
-    }
-
-    function tutupbar() {
-        $("#iconmenubar").animate({
-            left: "-10px"
-        }, 200, function () {
-            bmenu = 1;
-        });
-
-        $(".barmenubar").animate({
-            left: "-230px"
-        }, 200, function () {
-            bmenu = 1;
-        });
-    }
+//    function bukakbar() {
+//        $("#iconmenubar").animate({
+//            left: "200px"
+//        }, 500, function () {
+//            bmenu = 2;
+//        });
+//
+//        $(".barmenubar").animate({
+//            left: "10px"
+//        }, 500, function () {
+//            bmenu = 2;
+//        });
+//    }
+//
+//    function tutupbar() {
+//        $("#iconmenubar").animate({
+//            left: "-10px"
+//        }, 200, function () {
+//            bmenu = 1;
+//        });
+//
+//        $(".barmenubar").animate({
+//            left: "-230px"
+//        }, 200, function () {
+//            bmenu = 1;
+//        });
+//    }
 
     $(document).ready(function () {
         
@@ -48,29 +87,30 @@
             $("#btn_tepi1").hide();
         }
 
-        $(document).keypress(function (e) {
-            tutupbar();
-        });
-        $(document).mousedown(function (e) {
-            tutupbar();
-        });
+//        $(document).keypress(function (e) {
+//            tutupbar();
+//        });
+//        $(document).mousedown(function (e) {
+//            tutupbar();
+//        });
 
         $(".linkmenubar").click(function () {
             var linkmenu = $(this).attr("l");
             pass_url(linkmenu);
-            tutupbar();
+            location.href = '';
+//            tutupbar();
         });
 
-        var bmenu = 1;
-        $("#iconmenubar").click(function () {
-            if (bmenu == 1) {
-                bukakbar();
-            }
-
-            if (bmenu == 2) {
-                tutupbar();
-            }
-        });
+//        var bmenu = 1;
+//        $("#iconmenubar").click(function () {
+//            if (bmenu == 1) {
+//                bukakbar();
+//            }
+//
+//            if (bmenu == 2) {
+//                tutupbar();
+//            }
+//        });
         
 //        $("#iconmenubar").hover(function () {
 //            if (bmenu == 1) {
@@ -81,7 +121,7 @@
 </script>
 
 <style>
-    #iconmenubar {
+/*    #iconmenubar {
         max-height: 50px;
         max-width: 50px;
         position: absolute;
@@ -99,5 +139,5 @@
         cursor: pointer;
         width: 230px;
         height: 400px;
-    }
+    }*/
 </style>

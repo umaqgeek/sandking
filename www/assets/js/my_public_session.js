@@ -25,5 +25,6 @@ $(document).ready(function () {
         change_title('title.html');
         change_menubar('menubar.html');
         pass_url('logout.html');
+        location.href = '';
     }); 
 });
