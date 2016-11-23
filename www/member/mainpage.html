@@ -1,102 +1,33 @@
 
-
 <div class="row">
-    <div class="col-md-12 col-md-offset-0" id="paparQr">
-
-        <form method="post" action="#!">
-            <center>
-
-                <h4>Generate Invoice with QR</h4>
-
-                <hr />
-
-                <input type="hidden" name="invoiceqr1" id="invoiceqr1" value="1" />
-
-                <div class="col-md-12"><input type="text" class="form-control" name="price" id="price" 
-                                              placeholder="Total product price in MYR. Example 23.50. This will be the total product price excluding other service charge and GST." /></div>
-                <br />
-                Or 
-                <br /><br />
-
-                <div class="col-md-6">
-                    <input type="text" class="form-control" name="gold" id="gold" placeholder="Total product price in Gold Gram. Example 1.00. This unit is in gram." />
-                </div>
-                <div class="col-md-6" id="get_purity_gold">
-                    <select class="form-control" name="pu_id_gold" id="pu_id_gold">
-                        <option value="-1">-- Select Gold Purity --</option>
-                    </select>
-                </div>
-
-                <br />
-                Or 
-                <br /><br />
-
-                <div class="col-md-6">
-                    <input type="text" class="form-control" name="silver" id="silver" placeholder="Total product price in Silver Gram. Example 1.00. This unit is in gram." />
-                </div>
-                <div class="col-md-6" id="get_purity_silver">
-                    <select class="form-control" name="pu_id_silver" id="pu_id_silver">
-                        <option value="-1">-- Select Silver Purity --</option>
-                    </select>
-                </div>
-
-                <hr />
-
-                <div class="col-md-12">
-                    Apply GST ? &nbsp;&nbsp;&nbsp;
-                    <label style="cursor: pointer;"><input type="radio" name="gst" id="gst1" value="1" checked="" /> Yes</label>
-                    &nbsp;&nbsp;
-                    <label style="cursor: pointer;"><input type="radio" name="gst" id="gst2" value="-1" checked="" /> No</label>
-                    <br />
-                </div>
-
-                <br />
-
-                <div class="col-md-12"><input type="text" class="form-control" name="service_charge" id="service_charge" 
-                                              placeholder="Other service charge (optional). Example 5.00. This will be the other service charge if applicable." /></div>
-
-                <hr />
-
-                <div class="col-md-12">
-                    <button class="btn myButton-blue" type="button" id="btn_gen_invoice">Generate Invoice QR</button>
-                </div>
-
-            </center>
-        </form>
-        
+    <div class="col-md-3 col-md-offset-3" id="btn_tepi1">
+        <center>
+            <a href="#!" style="cursor: pointer" class="linkmenubar" l="member/invoice.html">
+                <img src="assets/images/invoicewithqr.png" style="max-height: 200px; max-width: 200px;" />
+            </a>
+        </center>
+    </div>
+    <div class="col-md-3" id="btn_tepi2">
+        <center>
+            <a href="#!" style="cursor: pointer" class="linkmenubar" l="member/payment.html">
+                <img src="assets/images/scanwithqr.png" style="max-height: 200px; max-width: 200px;" />
+            </a>
+        </center>
     </div>
 </div>
 
-<!-- start controller jquery -->
 <script src="assets/js/my_public_session.js"></script>
 <script>
     $(document).ready(function () {
-        $.post(URL_SERVER + "member/getPurity/1", {}).done(function (data1) {
-            $("#get_purity_gold").html(data1);
-            $.post(URL_SERVER + "member/getPurity/2", {}).done(function (data2) {
-                $("#get_purity_silver").html(data2);
-                $("#btn_gen_invoice").removeClass("disabled").removeAttr("disabled");
-                
-                $("#btn_gen_invoice").click(function () {
-//                    var form = $("form").serialize();
-                    var form = $("form").serializeArray();
-                    $.post(URL_SERVER + "member/qrCodeInvoice", {
-                        form1: form,
-                        uid: uid
-                    }).done(function (data3) {
-                        var d = data3.split("|");
-                        if (d[0] == '-1') {
-                            msg_alert(d[1], 4);
-                        } else {
-                            msg_alert_clr();
-                            $("#paparQr").html(data3);
-                        }
-                    }); 
-                    msg_alert("Connecting ...", 2);
-                });
-            });
-        });
-        $("#btn_gen_invoice").addClass("disabled").attr("disabled");
+        
+        var accounttype = localStorage.getItem('accounttype');
+        if (accounttype == '1') {
+            $("#btn_tepi1").hide();
+            $("#btn_tepi2").addClass("col-md-offset-3");
+        } else {
+            $("#btn_tepi1").show();
+            $("#btn_tepi2").removeClass("col-md-offset-3");
+        }
+        
     });
 </script>
-<!-- end controller jquery -->

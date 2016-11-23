@@ -4,7 +4,8 @@
 <div class="barmenubar img-rounded">
 	<br>
 	<br>
-    <button style="cursor: pointer" class="linkmenubar btn btn-info" l="member/mainpage.html">Invoice with QR</button>
+    <button id="btn_tepi1" style="cursor: pointer" class="linkmenubar btn btn-info" l="member/invoice.html">Invoice with QR</button>
+    <button id="btn_tepi2" style="cursor: pointer" class="linkmenubar btn btn-info" l="member/payment.html">Purchase with QR</button>
     <button style="cursor: pointer" class="btn btn-danger btn_logout">Logout</button>
     <p></p>
 </div>
@@ -41,6 +42,11 @@
     }
 
     $(document).ready(function () {
+        
+        var accounttype = localStorage.getItem('accounttype');
+        if (accounttype == '1') {
+            $("#btn_tepi1").hide();
+        }
 
         $(document).keypress(function (e) {
             tutupbar();

@@ -1,0 +1,32 @@
+
+<div class="row" style="overflow-x: scroll; margin-left: 2%; margin-right: 2%;">
+    <div class="col-md-12 col-md-offset-0">
+        <center>
+
+            <h4>Purchase with QR</h4>
+
+            <hr />
+            
+            <span id="papar1">.. connecting ..</span>
+
+        </center>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        qr_text_code = localStorage.getItem("qr_text");
+        $.post(URL_SERVER + "member/apps_invoice_pay2", {
+            code: qr_text_code
+        }).done(function (data1) {
+            var d = data1.split("|");
+            if (d[0] == '-1') {
+                msg_alert(d[1], 4);
+                pass_url('member/payment.html');
+            } else {
+                msg_alert_clr();
+                $("#papar1").html(data1);
+            }
+        });
+    });
+</script>

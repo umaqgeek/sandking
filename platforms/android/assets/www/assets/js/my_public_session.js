@@ -3,6 +3,7 @@ var username = localStorage.getItem("username");
 var password = localStorage.getItem("password");
 var uid = localStorage.getItem("uid");
 var loggedin = localStorage.getItem("loggedin");
+var accounttype = localStorage.getItem("accounttype");
 
 if (loggedin == "false") {
 //    location.href = '../index.html';
@@ -20,6 +21,7 @@ $(document).ready(function () {
         localStorage.setItem("password", "");
         localStorage.setItem("uid", "");
         localStorage.setItem("loggedin", false);
+        localStorage.setItem("accounttype", "-1");
         change_title('title.html');
         change_menubar('menubar.html');
         pass_url('logout.html');
