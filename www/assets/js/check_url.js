@@ -23,6 +23,7 @@ function pass_url(page) {
         change_title('member/title.html');
         change_menubar('member/menubar.html');
     }
+//    alert(page);
     
     adopt.attr("l", page);
     

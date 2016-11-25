@@ -71,30 +71,68 @@
 <script src="assets/js/my_public_session.js"></script>
 <script>
     $(document).ready(function () {
-        $.post(URL_SERVER + "member/getPurity/1", {}).done(function (data1) {
-            $("#get_purity_gold").html(data1);
-            $.post(URL_SERVER + "member/getPurity/2", {}).done(function (data2) {
-                $("#get_purity_silver").html(data2);
-                $("#btn_gen_invoice").removeClass("disabled").removeAttr("disabled");
+        
+        $.ajax({
+            url: URL_SERVER + "member/getPurity/1",
+            data: {  
+            },
+            type: 'post',
+            timeout: 10000,
+            success: function(data1)
+            {
+                $("#get_purity_gold").html(data1);
                 
-                $("#btn_gen_invoice").click(function () {
-//                    var form = $("form").serialize();
-                    var form = $("form").serializeArray();
-                    $.post(URL_SERVER + "member/qrCodeInvoice", {
-                        form1: form,
-                        uid: uid
-                    }).done(function (data3) {
-                        var d = data3.split("|");
-                        if (d[0] == '-1') {
-                            msg_alert(d[1], 4);
-                        } else {
-                            msg_alert_clr();
-                            $("#paparQr").html(data3);
-                        }
-                    }); 
-                    msg_alert("Connecting ...", 2);
+                $.ajax({
+                    url: URL_SERVER + "member/getPurity/2",
+                    data: {  
+                    },
+                    type: 'post',
+                    timeout: 10000,
+                    success: function(data2)
+                    {
+                        $("#get_purity_silver").html(data2);
+                        $("#btn_gen_invoice").removeClass("disabled").removeAttr("disabled");
+                        
+                        $("#btn_gen_invoice").click(function () {
+                            var form = $("form").serializeArray();
+                            
+                            $.ajax({
+                                url: URL_SERVER + "member/qrCodeInvoice",
+                                data: {  
+                                    form1: form,
+                                    uid: uid
+                                },
+                                type: 'post',
+                                timeout: 10000,
+                                success: function(data3)
+                                {
+                                    var d = data3.split("|");
+                                    if (d[0] == '-1') {
+                                        msg_alert(d[1], 4);
+                                    } else {
+                                        msg_alert_clr();
+                                        $("#paparQr").html(data3);
+                                    }
+                                },
+                                error: function(XMLHttpRequest, textStatus, errorThrown)
+                                {
+                                    msg_alert('Opss! Network is down!!<br />Check your connection.', 4);
+                                }
+                            });
+                            $("#btn_gen_invoice").addClass("disabled").attr("disabled");
+                            msg_alert("Connecting ...", 2);
+                        });
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown)
+                    {
+                        msg_alert('Opss! Network is down!!<br />Check your connection.', 4);
+                    }
                 });
-            });
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown)
+            {
+                msg_alert('Opss! Network is down!!<br />Check your connection.', 4);
+            }
         });
         $("#btn_gen_invoice").addClass("disabled").attr("disabled");
     });
