@@ -3,9 +3,42 @@
         <center>
             <h3 onclick="pass_url('member/mainpage.html');" style="cursor: pointer;">
 
-                <b>DinarPal Smart Pay with QR</b>
+                <b>DinarPal Smart Pay QR Apps</b>
 
             </h3>
         </center>
     </div>
 </div>
+
+<script>
+    function sessionCheckx() {
+    
+        $.ajax({
+            url: URL_SERVER + "login/receivePing",
+            data: { 
+            },
+            type: 'post',
+            timeout: 1000,
+            success: function(datax)
+            {
+                var d = datax.split("|");
+                if (d[0] == '-1') {
+                    msg_alert(d[1], 4);
+                } else {
+                    msg_alert_clr();
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown)
+            {
+                msg_alert('Opss! Network is down!!<br />Check your connection.', 4);
+            }
+        });
+        
+        var t = setTimeout("sessionCheckx()", 5000);
+    }
+    
+    $(document).ready(function () {
+        sessionCheckx();
+    });
+    
+</script>

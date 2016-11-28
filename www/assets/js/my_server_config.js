@@ -1,5 +1,6 @@
 
 var DP_SERVER = 'https://www.dinarpal.com/';
+//var DP_SERVER = 'http://192.168.1.2/dinarpal_v2/';
 
 //var URL_SERVER = 'https://localhost/dinarpal_v2/apps_invoiceqr/index.php/';
 //var URL_SERVER = 'http://192.168.1.2/dinarpal_v2/apps_invoiceqr/index.php/';
