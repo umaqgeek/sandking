@@ -1,51 +1,45 @@
 
-<img src="assets/images/menubar.png" class="img-circle" id="iconmenubar" />
+<style>
+    .navbar-default1 {
+        background-color: #252E33;
+    }
+</style>
 
-<div class="barmenubar img-rounded">
-	<br>
-	<br>
-    <button style="cursor: pointer" class="linkmenubar btn btn-info" l="login.html">Login</button>
-    <p></p>
+
+<div class="navbar-dinarpal navbar-default1 navbar-fixed-top">
+    <div class="container">
+        <center>
+            <nav class="navbar navbar-inverse" role="navigation">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#!"><img src="assets/images/DP-Logo-small.png" width="106" height="29" alt="DinarPal" /></a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#!" class="linkmenubar" l="login.html"><i class="fa fa-home"></i>Home</a></li>
+                        </ul> 
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#!" class="linkmenubar" l="login.html"><i class="fa fa-sign-in"></i> Login</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </center>
+    </div>
 </div>
 
+
+<script src="assets/js/my_public_session.js"></script>
 <script>
-    
-    function bukakbar() {
-        $("#iconmenubar").animate({
-            left: "200px"
-        }, 500, function () {
-            bmenu = 2;
-        });
-
-        $(".barmenubar").animate({
-            left: "10px"
-        }, 500, function () {
-            bmenu = 2;
-        });
-    }
-    
-    function tutupbar() {
-        $("#iconmenubar").animate({
-            left: "-10px"
-        }, 200, function () {
-            bmenu = 1;
-        });
-
-        $(".barmenubar").animate({
-            left: "-230px"
-        }, 200, function () {
-            bmenu = 1;
-        });
-    }
-    
     $(document).ready(function () {
-        
-        $(document).keypress(function (e) {
-            tutupbar();
-        });
-        $(document).mousedown(function (e) {
-            tutupbar();
-        });
         
         $(".linkmenubar").click(function () {
             var linkmenu = $(this).attr("l");
@@ -53,43 +47,5 @@
             tutupbar();
         });
         
-        var bmenu = 1;
-        $("#iconmenubar").click(function () {
-            if (bmenu == 1) {
-                bukakbar();
-            }
-            
-            if (bmenu == 2) {
-                tutupbar();
-            }
-        });
-        
-//        $("#iconmenubar").hover(function () {
-//            if (bmenu == 1) {
-//                bukakbar();
-//            }
-//        });
     });
 </script>
-
-<style>
-    #iconmenubar {
-        max-height: 50px;
-        max-width: 50px;
-        position: absolute;
-        left: -10px;
-        top: 40px;
-        z-index: 200;
-        cursor: pointer;
-    }
-    
-    .barmenubar {
-        position: absolute;
-        left: -230px;
-        top: 50px;
-        z-index: 190;
-        cursor: pointer;
-        width: 230px;
-        height: 400px;
-    }
-</style>

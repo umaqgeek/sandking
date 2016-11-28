@@ -233,7 +233,7 @@ made subject to such option by the copyright holder.
     
     <target name="update-plugins">
         <plugintask/>
-    </target>    
+    </target>
     
     <target name="update-android">
         <echo level="info" message="${cordova.command} prepare android"/>

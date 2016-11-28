@@ -12,12 +12,26 @@
 <script>
     $(document).ready(function () {
         var code = localStorage.getItem("code");
-        $.post(URL_SERVER + "member/paparResit", {
-            code: code
-        }).done(function (data) {
-            msg_alert_clr();
-            $("#paparresit").html(data);
+        
+        $.ajax({
+            url: URL_SERVER + "member/paparResit",
+            data: { 
+                code: code
+            },
+            type: 'post',
+            timeout: 10000,
+            success: function(data)
+            {
+                msg_alert_clr();
+                $("#paparresit").html(data);
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown)
+            {
+                msg_alert('Opss! Network is down!!<br />Check your connection.', 4);
+            }
         });
+        
         msg_alert("Payment confirmation ...", 2);
+        
     });
 </script>

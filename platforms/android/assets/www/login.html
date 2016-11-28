@@ -40,29 +40,42 @@
                 msg_alert('Do not leave blank!', 4);
                 return;
             }
-
-            $.post(URL_SERVER + "login/authenticate", {
-                username: user,
-                password: pwd
-            }).done(function (data) {
-                var d = get_pecah(data);
-                if (d[0] == '1' || d[0] == 1) {
-                    msg_alert(d[1], 4);
-                } else {
-                    var uid = d[2];
-                    var accounttype = d[3];
-                    localStorage.setItem("username", user);
-                    localStorage.setItem("password", pwd);
-                    localStorage.setItem("uid", uid);
-                    localStorage.setItem("loggedin", true);
-                    localStorage.setItem("accounttype", accounttype);
-//                    location.href = 'member/index.html?page=overview.html';
-                    pass_url('member/mainpage.html');
-                    change_title('member/title.html');
-                    change_menubar('member/menubar.html');
-                    msg_alert_clr();
+            
+            $.ajax({
+                url: URL_SERVER + "login/authenticate",
+                data: {
+                    username: user,
+                    password: pwd
+                },
+                type: 'post',
+                timeout: 10000,
+                success: function(data)
+                {
+                    var d = get_pecah(data);
+                    if (d[0] == '1' || d[0] == 1) {
+                        msg_alert(d[1], 4);
+                    } else {
+                        var uid = d[2];
+                        var accounttype = d[3];
+//                        alert(accounttype); return;
+                        localStorage.setItem("username", user);
+                        localStorage.setItem("password", pwd);
+                        localStorage.setItem("uid", uid);
+                        localStorage.setItem("loggedin", true);
+                        localStorage.setItem("accounttype", accounttype);
+    //                    location.href = 'member/index.html?page=overview.html';
+                        pass_url('member/mainpage.html');
+                        change_title('member/title.html');
+                        change_menubar('member/menubar.html');
+                        msg_alert_clr();
+                    }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown)
+                {
+                    msg_alert('Opss! Network is down!!<br />Check your connection.', 4);
                 }
             });
+
             msg_alert('Authenticating ...', 2);
 
         });

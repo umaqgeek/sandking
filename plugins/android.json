@@ -7,16 +7,12 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-whitelist": {
+        "phonegap-plugin-barcodescanner": {
             "PACKAGE_NAME": "com.coolappz.dinarpal_invoicewithqr"
         },
-        "cordova-plugin-qrscanner": {
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.coolappz.dinarpal_invoicewithqr"
         }
     },
-    "dependent_plugins": {
-        "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.coolappz.dinarpal_invoicewithqr"
-        }
-    }
+    "dependent_plugins": {}
 }

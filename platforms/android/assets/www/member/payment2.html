@@ -16,17 +16,42 @@
 <script>
     $(document).ready(function () {
         qr_text_code = localStorage.getItem("qr_text");
-        $.post(URL_SERVER + "member/apps_invoice_pay2", {
-            code: qr_text_code
-        }).done(function (data1) {
-            var d = data1.split("|");
-            if (d[0] == '-1') {
-                msg_alert(d[1], 4);
-                pass_url('member/payment.html');
-            } else {
-                msg_alert_clr();
-                $("#papar1").html(data1);
+        
+        $.ajax({
+            url: URL_SERVER + "member/apps_invoice_pay2",
+            data: {
+                code: qr_text_code
+            },
+            type: 'post',
+            timeout: 10000,
+            success: function(data1)
+            {
+                var d = data1.split("|");
+                if (d[0] == '-1') {
+                    msg_alert(d[1], 4);
+                    pass_url('member/payment.html');
+                } else {
+                    msg_alert_clr();
+                    $("#papar1").html(data1);
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown)
+            {
+                msg_alert('Opss! Network is down!!<br />Check your connection.', 4);
             }
         });
+        
+//        $.post(URL_SERVER + "member/apps_invoice_pay2", {
+//            code: qr_text_code
+//        }).done(function (data1) {
+//            var d = data1.split("|");
+//            if (d[0] == '-1') {
+//                msg_alert(d[1], 4);
+//                pass_url('member/payment.html');
+//            } else {
+//                msg_alert_clr();
+//                $("#papar1").html(data1);
+//            }
+//        });
     });
 </script>
