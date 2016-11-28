@@ -1,0 +1,39 @@
+
+<div class="row">
+    <div class="col-md-12">
+        
+        <table class="table">
+            <tr>
+                <td>Server</td>
+                <td>:</td>
+                <td>
+                    <select class="form-control" id="server">
+                        <option value="https://www.dinarpal.com/">DinarPal Server</option>
+                        <option value="http://192.168.1.16/dinarpal_v2/">Office Server</option>
+                        <option value="http://192.168.1.2/dinarpal_v2/">Home Server</option>
+                        <option value="https://localhost/dinarpal_v2/">localhost Server</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center">
+                    <button class="button blue-button" type="button" id="btn_conn">Connect</button>
+                </td>
+            </tr>
+        </table>
+        
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#server").val(DP_SERVER);
+        $("#btn_conn").click(function () {
+            var server = $("#server").val();
+            DP_SERVER = server;
+            URL_SERVER = server + "apps_invoiceqr/index.php/";
+            BASE_URL_SERVER = server + "apps_invoiceqr/";
+            pass_url('login.html');
+        });
+    });
+</script>

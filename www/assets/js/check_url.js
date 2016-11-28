@@ -45,3 +45,9 @@ function change_menubar(bar_page) {
     mb.attr("l", bar_page);
     mb.load(bar_page);
 }
+
+function change_footer(foot_page) {
+    var fp = $("#adopted4");
+    fp.attr("l", foot_page);
+    fp.load(foot_page);
+}

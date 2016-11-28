@@ -1,10 +1,12 @@
 
+var DP_SERVER = 'http://192.168.1.2/dinarpal_v2/';
+
 //var URL_SERVER = 'https://localhost/dinarpal_v2/apps_invoiceqr/index.php/';
-var URL_SERVER = 'http://192.168.1.16/dinarpal_v2/apps_invoiceqr/index.php/';
+var URL_SERVER = 'http://192.168.1.2/dinarpal_v2/apps_invoiceqr/index.php/';
 //var URL_SERVER = 'https://www.dinarpal.com/apps_invoiceqr/index.php/';
 
 //var BASE_URL_SERVER = 'https://localhost/dinarpal_v2/apps_invoiceqr/';
-var BASE_URL_SERVER = 'http://192.168.1.16/dinarpal_v2/apps_invoiceqr/';
+var BASE_URL_SERVER = 'http://192.168.1.2/dinarpal_v2/apps_invoiceqr/';
 //var BASE_URL_SERVER = 'https://www.dinarpal.com/apps_invoiceqr/';
 
 $(this).mousemove(function (e) {

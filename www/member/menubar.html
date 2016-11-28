@@ -24,11 +24,14 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li><a href="#!" class="linkmenubar" l="member/mainpage.html"><i class="fa fa-home"></i>Home</a></li>
+                            <li><a href="#!" class="linkmenubar" l="member/mainpage.html"><i class="fa fa-home"> </i>Home</a></li>
+                        </ul> 
+                        <ul class="nav navbar-nav">
+                            <li><a href="#!" class="linkmenubar" l="member/mainpage.html"><i class="fa fa-user"></i> <span id="username_bar">-</span></a></li>
                         </ul> 
                         <ul class="nav navbar-nav navbar-right">
-                            <li id="btn_tepi1"><a href="#!" class="linkmenubar" l="member/invoice.html"><i class="fa fa-sign-in"></i> Invoice</a></li>
-                            <li id="btn_tepi2"><a href="#!" class="linkmenubar" l="member/payment.html"><i class="fa fa-sign-in"></i> Purchase</a></li>
+                            <li id="btn_tepi1"><a href="#!" class="linkmenubar" l="member/invoice.html"><i class="fa fa-building-o"> </i> Invoice</a></li>
+                            <li id="btn_tepi2"><a href="#!" class="linkmenubar" l="member/payment.html"><i class="fa fa-qrcode"> </i> Purchase</a></li>
                             <li><a href="#!" class="btn_logout"><i class="fa fa-sign-in"></i> Logout</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
@@ -81,6 +84,30 @@
 //    }
 
     $(document).ready(function () {
+        
+        $.ajax({
+            url: URL_SERVER + "member/getUsername",
+            data: {
+                uid: uid
+            },
+            type: 'post',
+            timeout: 10000,
+            success: function(datax)
+            {
+                var d = datax.split("|");
+                if (d[0] == '-1') {
+                    msg_alert(d[1], 4);
+                } else {
+                    msg_alert_clr();
+                    $("#username_bar").html(d[1]);
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown)
+            {
+                msg_alert('Opss! Network is down!!<br />Check your connection.', 4);
+            }
+        });
+        msg_alert('Connecting ...', 2);
         
         var accounttype = localStorage.getItem('accounttype');
         if (accounttype == '1') {
