@@ -1,1 +1,29 @@
-resit
+
+<div class="row">
+    <div class="col-md-12">
+        <center>
+            
+            <img src="./assets/images/approve.png" />
+            
+            <h2 class="alert alert-success">Payment Success!</h2>
+            <h4>Invoice ID : IwQR<span id="inv_id"></span></h4>
+            
+            <br />
+            <br />
+            <button type="button" class="button green-button" id="btn_closex">Close</button>
+            
+        </center>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var iwq = localStorage.getItem('codeiwq');
+        $("#inv_id").html(iwq);
+        
+        $("#btn_closex").click(function () {
+            msg_alert_clr();
+            pass_url('member/payment.html');
+        });
+    });
+</script>
