@@ -9,3 +9,36 @@
         </center>
     </div>
 </div>
+
+<script>
+    function sessionCheckx() {
+    
+        $.ajax({
+            url: URL_SERVER + "member/receivePing",
+            data: { 
+            },
+            type: 'post',
+            timeout: 1000,
+            success: function(datax)
+            {
+                var d = datax.split("|");
+                if (d[0] == '-1') {
+                    msg_alert(d[1], 4);
+                } else {
+                    msg_alert_clr();
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown)
+            {
+                msg_alert('Opss! Network is down!!<br />Check your connection.', 4);
+            }
+        });
+        
+        var t = setTimeout("sessionCheckx()", 1000);
+    }
+    
+    $(document).ready(function () {
+        sessionCheckx();
+    });
+    
+</script>
